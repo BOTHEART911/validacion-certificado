@@ -25,12 +25,7 @@
       color:#111;
       background: url('https://res.cloudinary.com/dqqeavica/image/upload/v1746905869/fondo_rosa_n775m4.png') center/cover fixed no-repeat;
     }
-    .container{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 16px;
-      box-sizing:border-box;
-    }
+    .container{ max-width: 980px; margin: 0 auto; padding: 16px; box-sizing:border-box; }
     .card{
       background: var(--card);
       backdrop-filter: blur(3px);
@@ -42,100 +37,34 @@
       padding: 20px 20px 16px;
       box-sizing:border-box;
     }
-    h1{
-      margin: 8px 0 12px;
-      text-align:center;
-      color: var(--primary);
-      letter-spacing:.2px;
-    }
-    p.helper{
-      color:#444;
-      font-size:.95rem;
-      text-align:center;
-      margin: 8px 0 16px;
-      font-weight:600;
-    }
+    h1{ margin: 8px 0 12px; text-align:center; color: var(--primary); letter-spacing:.2px; }
+    p.helper{ color:#444; font-size:.95rem; text-align:center; margin: 8px 0 16px; font-weight:600; }
     .center{ text-align:center; }
     .pill{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-weight: 900;
-      border: 2px solid var(--primary);
-      background:#fff;
-      gap:8px;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 14px; border-radius: 999px; font-weight: 900;
+      border: 2px solid var(--primary); background:#fff; gap:8px;
     }
     .pill.ok{ border-color: var(--ok); color: var(--ok); }
     .pill.bad{ border-color: var(--error); color: var(--error); }
-    .grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:10px;
-      margin-top:14px;
-    }
-    .row{
-      background:#fff;
-      border:1.5px solid #e5e7eb;
-      border-radius:12px;
-      padding:10px 12px;
-    }
-    .k{
-      font-weight:900;
-      color:var(--primary);
-      font-size:.82rem;
-      margin:0 0 2px;
-    }
-    .v{
-      margin:0;
-      font-weight:700;
-      color:#111;
-      word-break:break-word;
-    }
+    .grid{ display:grid; grid-template-columns:1fr; gap:10px; margin-top:14px; }
+    .row{ background:#fff; border:1.5px solid #e5e7eb; border-radius:12px; padding:10px 12px; }
+    .k{ font-weight:900; color:var(--primary); font-size:.82rem; margin:0 0 2px; }
+    .v{ margin:0; font-weight:700; color:#111; word-break:break-word; }
     .btn{
-      width:100%;
-      padding:12px;
-      border-radius:10px;
-      border:2px solid var(--primary);
-      background:var(--primary);
-      color:#fff;
-      font-weight:900;
-      cursor:pointer;
+      width:100%; padding:12px; border-radius:10px; border:2px solid var(--primary);
+      background:var(--primary); color:#fff; font-weight:900; cursor:pointer;
       transition:transform .08s ease, background .2s ease, border-color .2s ease;
     }
-    .btn:hover{
-      background:var(--primary-2);
-      border-color:var(--primary-2);
-    }
+    .btn:hover{ background:var(--primary-2); border-color:var(--primary-2); }
     .btn:active{ transform:scale(.99); }
     .btn-secondary{
-      background:#fff;
-      color:#000;
-      border-color:var(--primary);
-      margin-top:10px;
+      background:#fff; color:#000; border-color:var(--primary); margin-top:10px;
     }
-    .btn-secondary:hover{
-      background:var(--primary-2);
-      color:#fff;
-      border-color:var(--primary-2);
-    }
-    .footer{
-      margin-top:16px;
-      text-align:center;
-      color:var(--muted);
-      font-size:.85rem;
-    }
-    .tiny{
-      font-size:.8rem;
-      color:#374151;
-      margin-top:10px;
-      text-align:center;
-    }
-    .muted{
-      color:var(--muted);
-      font-weight:600;
-    }
+    .btn-secondary:hover{ background:var(--primary-2); color:#fff; border-color:var(--primary-2); }
+    .footer{ margin-top:16px; text-align:center; color:var(--muted); font-size:.85rem; }
+    .tiny{ font-size:.8rem; color:#374151; margin-top:10px; text-align:center; }
+    .muted{ color:var(--muted); font-weight:600; }
   </style>
 </head>
 <body>
@@ -163,14 +92,7 @@
   </main>
 
   <script>
-    /* IMPORTANTE:
-       1) Esta página (GitHub Pages) NO puede leer directamente tu Spreadsheet.
-       2) Debe consultar a tu WebApp de Apps Script.
-       3) Aquí debes poner la URL BASE de tu WebApp donde implementarás:
-          action=getCertificadoById
-          (similar a getFirmaById en gsref.md)
-    */
-    const WEBAPP_BASE = 'PON_AQUI_TU_URL_DE_WEBAPP/exec';
+    const WEBAPP_BASE = 'https://script.google.com/macros/library/d/1MB5VORPPJnuIJ1KpD7YWuF3GVbRPpip9XT3miKkcPKQhfkgYIOYXhHOZ/115';
 
     const SOUNDS = {
       info: 'https://res.cloudinary.com/dqqeavica/video/upload/v1759011578/Default_notification_pkp4wr.mp3',
@@ -199,7 +121,7 @@
       if(ok){
         badge.textContent = 'DOCUMENTO VÁLIDO';
         badge.className = 'pill ok';
-        subtitle.textContent = 'Este Certificado de Contrato fue generado por el sistema.';
+        subtitle.textContent = 'Este certificado fue generado por el sistema.';
         return;
       }
 
@@ -266,7 +188,6 @@
 
       const idDoc = String(getParam('idDoc') || '').trim();
       clearGrid();
-
       DOC_DATA = null;
 
       if(!idDoc){
@@ -291,52 +212,45 @@
       }
 
       setBadge(true);
-
-      addRow('FECHA / HORA', DOC_DATA.fechaHora);
       addRow('CONTRATISTA', DOC_DATA.nombre);
       addRow('DOCUMENTO', DOC_DATA.documento);
       addRow('CONTRATO', DOC_DATA.contrato);
       addRow('FECHA CONTRATO', DOC_DATA.fechaContrato);
       addRow('OBJETO', DOC_DATA.objeto);
-      addRow('VALOR INICIAL', DOC_DATA.valorInicial);
+      addRow('VALOR INICIAL', DOC_DATA.valorI);
       addRow('MRA', DOC_DATA.mra);
-      addRow('VALOR FINAL', DOC_DATA.valorFinal);
+      addRow('VALOR FINAL', DOC_DATA.valorF);
       addRow('FECHA DE INICIO', DOC_DATA.fechaInicio);
-      addRow('FECHA DE TERMINACIÓN', DOC_DATA.fechaTerminacion);
+      addRow('FECHA DE TERMINACIÓN', DOC_DATA.fechaTermino);
       addRow('ESTADO DEL CONTRATO', DOC_DATA.estadoContrato);
     }
 
     document.getElementById('btnCopiar').addEventListener('click', async ()=>{
-      function safe(v){
-        return (v === null || v === undefined) ? '' : String(v);
-      }
-      function line(k,v){
-        return k + ': ' + safe(v);
-      }
+      function safe(v){ return (v === null || v === undefined) ? '' : String(v); }
+      function line(k,v){ return k + ': ' + safe(v); }
 
       const idDoc = String(getParam('idDoc') || '').trim();
 
-      var lines = [];
+      const lines = [];
       if(DOC_DATA && DOC_DATA.valido){
         lines.push(line('ID CERTIFICADO', DOC_DATA.idDoc));
-        lines.push(line('FECHA / HORA', DOC_DATA.fechaHora));
         lines.push(line('CONTRATISTA', DOC_DATA.nombre));
         lines.push(line('DOCUMENTO', DOC_DATA.documento));
         lines.push(line('CONTRATO', DOC_DATA.contrato));
         lines.push(line('FECHA CONTRATO', DOC_DATA.fechaContrato));
         lines.push(line('OBJETO', DOC_DATA.objeto));
-        lines.push(line('VALOR INICIAL', DOC_DATA.valorInicial));
+        lines.push(line('VALOR INICIAL', DOC_DATA.valorI));
         lines.push(line('MRA', DOC_DATA.mra));
-        lines.push(line('VALOR FINAL', DOC_DATA.valorFinal));
+        lines.push(line('VALOR FINAL', DOC_DATA.valorF));
         lines.push(line('FECHA DE INICIO', DOC_DATA.fechaInicio));
-        lines.push(line('FECHA DE TERMINACIÓN', DOC_DATA.fechaTerminacion));
+        lines.push(line('FECHA DE TERMINACIÓN', DOC_DATA.fechaTermino));
         lines.push(line('ESTADO DEL CONTRATO', DOC_DATA.estadoContrato));
       }else{
         lines.push(line('ID CERTIFICADO', idDoc));
         lines.push(line('ESTADO', 'NO VÁLIDO'));
       }
 
-      var text = lines.join('\n');
+      const text = lines.join('\n');
       if(!text.trim()){
         Swal.fire({icon:'info',title:'Sin datos para copiar'});
         playSoundOnce(SOUNDS.info);
@@ -347,7 +261,7 @@
         if(navigator.clipboard && navigator.clipboard.writeText){
           await navigator.clipboard.writeText(text);
         }else{
-          var ta = document.createElement('textarea');
+          const ta = document.createElement('textarea');
           ta.value = text;
           ta.setAttribute('readonly','');
           ta.style.position = 'fixed';
@@ -357,7 +271,6 @@
           document.execCommand('copy');
           document.body.removeChild(ta);
         }
-
         Swal.fire({icon:'success',title:'Datos copiados',timer:1600,showConfirmButton:false});
         playSoundOnce(SOUNDS.success);
       }catch(e){
