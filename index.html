@@ -134,23 +134,28 @@
       document.getElementById('grid').innerHTML = '';
     }
 
-    function addRow(k,v){
-      const g = document.getElementById('grid');
-      const row = document.createElement('div');
-      row.className = 'row';
+    function addRow(k,v, opts){
+  const g = document.getElementById('grid');
+  const row = document.createElement('div');
+  row.className = 'row';
 
-      const pk = document.createElement('p');
-      pk.className = 'k';
-      pk.textContent = k;
+  const pk = document.createElement('p');
+  pk.className = 'k';
+  pk.textContent = k;
 
-      const pv = document.createElement('p');
-      pv.className = 'v';
-      pv.textContent = v || '';
+  const pv = document.createElement('p');
+  pv.className = 'v';
+  pv.textContent = v || '';
 
-      row.appendChild(pk);
-      row.appendChild(pv);
-      g.appendChild(row);
-    }
+  if(opts && opts.justify){
+    pv.style.textAlign = 'justify';
+    pv.style.textJustify = 'inter-word';
+  }
+
+  row.appendChild(pk);
+  row.appendChild(pv);
+  g.appendChild(row);
+}
 
     function showCorsHintIfNeeded(){
       const hint = document.getElementById('corsHint');
@@ -216,7 +221,7 @@
       addRow('DOCUMENTO', DOC_DATA.documento);
       addRow('CONTRATO', DOC_DATA.contrato);
       addRow('FECHA CONTRATO', DOC_DATA.fechaContrato);
-      addRow('OBJETO', DOC_DATA.objeto);
+      addRow('OBJETO', DOC_DATA.objeto, { justify:true });
       addRow('VALOR INICIAL', DOC_DATA.valorI);
       addRow('MRA', DOC_DATA.mra);
       addRow('VALOR FINAL', DOC_DATA.valorF);
